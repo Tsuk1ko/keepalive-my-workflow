@@ -1,0 +1,15 @@
+name: GitHub Workflow Immortality
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: PhrozenByte/gh-workflow-immortality@v1
+        with:
+          secret: ${{ secrets.PAT }}
+          repos: ${{ vars.REPOS }}
